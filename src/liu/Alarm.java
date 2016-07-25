@@ -10,6 +10,10 @@ public class Alarm {
 
     }
 
+    public Alarm() {
+        this.sensor = new Sensor();
+    }
+
     public void check() {
         double psiPressureValue = sensor.popNextPressurePsiValue();
         if (psiPressureValue < LOW_PRESSURE_THRESHOLD || psiPressureValue > HighPressureThreshold) {
