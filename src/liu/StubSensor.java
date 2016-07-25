@@ -1,7 +1,14 @@
 package liu;
 
 public class StubSensor implements Transducer {
-    public void arrangeNextPressurePsiValue(double thresholdValue) {
+    private double nextPressurePsiValue;
 
+    public void arrangeNextPressurePsiValue(double nextPressurePsiValue) {
+        this.nextPressurePsiValue = nextPressurePsiValue;
+    }
+
+    @Override
+    public double popNextPressurePsiValue(){
+        return this.nextPressurePsiValue;
     }
 }
