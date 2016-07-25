@@ -2,7 +2,7 @@ package liu;
 
 public class Alarm {
     public static final double LOW_PRESSURE_THRESHOLD = 17;
-    private final double HighPressureThreshold = 21;
+    public static final double HIGH_PRESSURE_THRESHOLD = 21;
     private Transducer transducer = null;
     private boolean alarmOn = false;
 
@@ -16,7 +16,7 @@ public class Alarm {
 
     public void check() {
         double psiPressureValue = transducer.popNextPressurePsiValue();
-        if (psiPressureValue < LOW_PRESSURE_THRESHOLD || psiPressureValue > HighPressureThreshold) {
+        if (psiPressureValue < LOW_PRESSURE_THRESHOLD || psiPressureValue > HIGH_PRESSURE_THRESHOLD) {
             alarmOn = true;
         }
     }
