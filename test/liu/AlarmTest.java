@@ -25,15 +25,15 @@ public class AlarmTest {
     }
 
     @Test
-    public void a_normal_pressure_value_after_a_value_outside_the_range_should_not_stop_the_alarm() {
+    public void a_normal_pressure_value_after_a_value_outside_the_range_should_stop_the_alarm() {
         StubSensor stubSensor = new StubSensor();
         stubSensor.arrangeNextPressurePsiValue(Alarm.LOW_PRESSURE_THRESHOLD - 1);
         Alarm alarm = new Alarm(stubSensor);
 
         alarm.check();
-        stubSensor.arrangeNextPressurePsiValue(Alarm.LOW_PRESSURE_THRESHOLD - 1);
+        stubSensor.arrangeNextPressurePsiValue(Alarm.LOW_PRESSURE_THRESHOLD);
         alarm.check();
 
-        assertTrue(alarm.isAlarmOn());
+        assertFalse(alarm.isAlarmOn());
     }
 }
